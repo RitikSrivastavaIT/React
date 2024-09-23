@@ -5,7 +5,7 @@ const TodoItems = ({ todoItems }) => {
   return (
     <div className={styles.itemContainer}>
       {todoItems.map((items) => (
-        <TodoItem todoName={items.name} todoDate={items.date} />
+        <TodoItem key={items.name} todoName={items.name} todoDate={items.date} />
       ))}
     </div>
   );
