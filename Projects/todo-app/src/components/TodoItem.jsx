@@ -1,8 +1,6 @@
 import React from "react";
 
-function TodoItems() {
-  let todoName = "Buy Food";
-  let todoDate = "22/08/2024";
+function TodoItem({ todoName, todoDate }) {
   return (
     <div className="container">
       <div className="row kg-row">
@@ -18,4 +16,4 @@ function TodoItems() {
   );
 }
 
-export default TodoItems;
+export default TodoItem;
