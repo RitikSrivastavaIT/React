@@ -1,52 +1,45 @@
-import React, { useState } from "react";
+import React, { useContext, useRef } from "react";
 import { BiCommentAdd } from "react-icons/bi";
 import styles from "./AddTodo.module.css";
-function AddTodo({ onNewItem }) {
-  const [todoName, setTodoName] = useState("");
-  const [dueDate, setDueDate] = useState("");
+import { TodoItemsContext } from "../store/todo-items-store";
+function AddTodo() {
+  const { addNewItem } = useContext(TodoItemsContext);
+  const todoNameElement = useRef();
+  const dueDateElement = useRef();
 
-  const handleNameChange = (event) => {
-    setTodoName(event.target.value);
-  };
-  const handleDateChange = (event) => {
-    setDueDate(event.target.value);
-  };
-  const handleAddButtonClicked = () => {
-    onNewItem(todoName, dueDate);
-    setTodoName("");
-    setDueDate("");
+  const handleAddButtonClicked = (event) => {
+    event.preventDefault();
+    const todoName = todoNameElement.current.value;
+    const dueDate = dueDateElement.current.value;
+    todoNameElement.current.value = "";
+    dueDateElement.current.value = "";
+    addNewItem(todoName, dueDate);
   };
 
   return (
     <div className="container text-center">
-      <div className="row kg-row">
+      <form className="row kg-row" onSubmit={handleAddButtonClicked}>
         <div className="col-6">
           <input
             className={styles.input}
+            ref={todoNameElement}
             type="text"
-            value={todoName}
             placeholder="Enter Todo Here"
-            onChange={handleNameChange}
           ></input>
         </div>
         <div className="col-4">
           <input
             className={styles.input}
+            ref={dueDateElement}
             type="date"
-            value={dueDate}
-            onChange={handleDateChange}
           ></input>
         </div>
         <div className="col-2">
-          <button
-            type="button"
-            className="btn btn-success kg-button"
-            onClick={handleAddButtonClicked}
-          >
+          <button type="submit" className="btn btn-success kg-button">
             <BiCommentAdd />
           </button>
         </div>
-      </div>
+      </form>
     </div>
   );
 }
