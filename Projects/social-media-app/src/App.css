@@ -4,7 +4,15 @@
 .content {
   width: 100%;
 }
-
 .sidebar {
-  height: 700px;
+  min-height: 615px;
+}
+.post-card {
+  margin: 20px 50px;
+}
+.hashtag {
+  margin: 0px 2px;
+}
+.reactions {
+  margin: 15px 0 0 0;
 }
