@@ -1,7 +1,7 @@
 import { createContext, useReducer } from "react";
 
 // const DEFAULT_CONTEXT = {};
-const PostList = createContext({
+export const PostList = createContext({
   postList: [],
   addPost: () => {},
   deletePost: () => {},
