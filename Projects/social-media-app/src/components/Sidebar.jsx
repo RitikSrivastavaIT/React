@@ -2,7 +2,7 @@ const Sidebar = ({ selectedTab, setSelectedTab }) => {
   return (
     <div
       className="d-flex flex-column flex-shrink-0 p-3 text-bg-dark sidebar"
-      style={{ width: "280px" }}
+      style={{ width: "180px" }}
     >
       <a
         href="/"
@@ -23,7 +23,7 @@ const Sidebar = ({ selectedTab, setSelectedTab }) => {
             }`}
             aria-current="page"
           >
-            <svg className="bi pe-none me-2" width="16" height="16">
+            <svg className="bi pe-none me-2" width="10" height="16">
               <use xlinkHref="#home"></use>
             </svg>
             Home
@@ -36,7 +36,7 @@ const Sidebar = ({ selectedTab, setSelectedTab }) => {
               selectedTab === "Create Post" && "active"
             }`}
           >
-            <svg className="bi pe-none me-2" width="16" height="16">
+            <svg className="bi pe-none me-2" width="10" height="16">
               <use xlinkHref="#speedometer2"></use>
             </svg>
             Create Post
